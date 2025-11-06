@@ -63,7 +63,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
         ease: "power2.inOut",
         duration: 1,
       },
-      0,
+      0
     )
       .to(
         ".background, .wavy-circles-outer, .wavy-circles-inner",
@@ -73,7 +73,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
           ease: "power2.inOut",
           duration: 1,
         },
-        0,
+        0
       )
       .to(".text-wrapper", { duration: 0.2, y: -10, opacity: 0 }, 0)
       .to({}, { onStart: () => setCurrentFlavorIndex(nextIndex) }, 0.5)
@@ -81,7 +81,9 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
   }
 
   return (
+    // ✅ Add id="flavors" for smooth scroll target
     <section
+      id="flavors"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="carousel relative grid h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white"
@@ -147,11 +149,7 @@ type ArrowButtonProps = {
   onClick: () => void;
 };
 
-function ArrowButton({
-  label,
-  onClick,
-  direction = "right",
-}: ArrowButtonProps) {
+function ArrowButton({ label, onClick, direction = "right" }: ArrowButtonProps) {
   return (
     <button
       onClick={onClick}
