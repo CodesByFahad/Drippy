@@ -19,6 +19,7 @@ export const metadata = {
   title: "Drippy — The Future of Refreshment",
   description:
     "Refreshing. Bold. Unique. Discover Drippy, a new era of taste.",
+  metadataBase: new URL("https://drippydrinks.vercel.app"), // 👈 VERY IMPORTANT
   openGraph: {
     title: "Drippy — The Future of Refreshment",
     description:
@@ -27,7 +28,7 @@ export const metadata = {
     siteName: "Drippy",
     images: [
       {
-        url: "/meta/drippy-cover.png", // 👈 place this image in /public/meta/
+        url: "/meta/drippy-cover.png", // ✅ absolute path now works because of metadataBase
         width: 1200,
         height: 630,
         alt: "Drippy — The Future of Refreshment",
