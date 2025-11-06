@@ -15,6 +15,36 @@ const alpino = localFont({
   variable: "--font-alpino",
 });
 
+export const metadata = {
+  title: "Drippy — The Future of Refreshment",
+  description:
+    "Refreshing. Bold. Unique. Discover Drippy, a new era of taste.",
+  openGraph: {
+    title: "Drippy — The Future of Refreshment",
+    description:
+      "Refreshing. Bold. Unique. Discover Drippy, a new era of taste.",
+    url: "https://drippydrinks.vercel.app",
+    siteName: "Drippy",
+    images: [
+      {
+        url: "/meta/drippy-cover.png", // 👈 place this image in /public/meta/
+        width: 1200,
+        height: 630,
+        alt: "Drippy — The Future of Refreshment",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Drippy — The Future of Refreshment",
+    description:
+      "Refreshing. Bold. Unique. Discover Drippy, a new era of taste.",
+    images: ["/meta/drippy-cover.png"],
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,22 +52,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={alpino.variable}>
-      {/* ✅ Force global title & meta */}
-      <head>
-        <title>Drippy — The Future of Refreshment</title>
-        <meta
-          name="description"
-          content="Refreshing. Bold. Unique. Discover Drippy, a new era of taste."
-        />
-        <meta property="og:title" content="Drippy — The Future of Refreshment" />
-        <meta
-          property="og:description"
-          content="Refreshing. Bold. Unique. Discover Drippy, a new era of taste."
-        />
-        <meta property="og:type" content="website" />
-        <meta name="theme-color" content="#ffcc00" />
-      </head>
-
       <body className="overflow-x-hidden bg-yellow-300">
         <Header />
         <main>
@@ -46,8 +60,7 @@ export default function RootLayout({
         </main>
         <Footer />
       </body>
-
-      {/* Keep Prismic preview active (no change) */}
+      {/* Keep Prismic preview active */}
       <PrismicPreview repositoryName={repositoryName} />
     </html>
   );
